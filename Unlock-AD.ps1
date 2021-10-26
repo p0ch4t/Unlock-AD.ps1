@@ -2,7 +2,7 @@ $tries = 0
 $user = Read-Host "[+] Usuario: "
 while ($tries -lt 50) {
     try{
-		$HOSTANAME_SERVIDOR = *** AQUI DEBE INTRODUCIR EL HOSTNAME DE SU SERVIDOR ***
+	$HOSTANAME_SERVIDOR = *** AQUI DEBE INTRODUCIR EL HOSTNAME DE SU SERVIDOR ***
         $PSSess = New-PSSession -ComputerName $HOSTNAME_SERVIDOR 2>$null
         Write-Output ""
         Invoke-Command -Session $PSSess {Get-ADUser $using:user -Properties * | Select LockedOut, PasswordExpired, PasswordLastSet | Format-Table}
